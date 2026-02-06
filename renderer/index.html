@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'">
+  <title>SAi Math Figure Generator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <h1>SAi Math Figure Generator</h1>
+      <div class="status-bar">
+        <span id="python-status" class="status-dot offline"></span>
+        <span id="status-text">Python Backend: Connecting...</span>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Left Panel: Code Input -->
+      <div class="panel input-panel">
+        <div class="panel-header">
+          <h2>Code Input</h2>
+          <div class="mode-selector">
+            <label>
+              <input type="radio" name="mode" value="matplotlib" checked>
+              Matplotlib (Python)
+            </label>
+            <label>
+              <input type="radio" name="mode" value="tikz">
+              TikZ (LaTeX)
+            </label>
+          </div>
+        </div>
+
+        <!-- Template Buttons -->
+        <div class="template-bar">
+          <span class="template-label">Quick Templates:</span>
+          <button class="btn-template" data-template="linear">Linear</button>
+          <button class="btn-template" data-template="quadratic">Quadratic</button>
+          <button class="btn-template" data-template="circle">Circle</button>
+          <button class="btn-template" data-template="trig">Trigonometric</button>
+          <button class="btn-template" data-template="triangle">Triangle</button>
+        </div>
+
+        <!-- Code Editor -->
+        <div class="editor-container">
+          <textarea id="code-editor" spellcheck="false" placeholder="Paste Seed 1.8 generated code here..."></textarea>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-bar">
+          <button id="btn-render" class="btn-primary">Generate Figure</button>
+          <button id="btn-clear" class="btn-secondary">Clear</button>
+        </div>
+      </div>
+
+      <!-- Right Panel: Preview -->
+      <div class="panel preview-panel">
+        <div class="panel-header">
+          <h2>Preview</h2>
+          <div class="preview-actions">
+            <button id="btn-save" class="btn-secondary" disabled>Save Image</button>
+            <button id="btn-zoom-in" class="btn-icon" title="Zoom In">+</button>
+            <button id="btn-zoom-out" class="btn-icon" title="Zoom Out">-</button>
+          </div>
+        </div>
+        <div class="preview-container">
+          <div id="preview-placeholder" class="placeholder">
+            <p>Generated figure will appear here</p>
+          </div>
+          <img id="preview-image" class="preview-img" style="display:none;" alt="Generated Math Figure">
+        </div>
+        <div id="error-message" class="error-box" style="display:none;"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
