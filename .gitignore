@@ -137,3 +137,24 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+venv/
+.env
+*.egg-info/
+
+# Electron
+dist/
+out/
+
+# Output
+output/
+build_*/
+*.aux
+*.log
+*.pdf
+*.synctex.gz
